@@ -4,3 +4,14 @@ version: 2.1.0
 author: takesi
 api: ["1.0.0"]
 load: POSTWORLD
+commands:
+ wo:
+  description: "Worldコマンド"
+  usage: /wo <subcommand>
+ permissions:
+  wo:
+   default: true
+   children:
+      wo.command:
+        description: "Allows you to use all PurePerms commands."
+        default: true
