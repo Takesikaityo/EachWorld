@@ -17,7 +17,7 @@ public class task extends PluginTask<Main> {
   public void onRun(int currentTick) {
 	  LocalDateTime d = LocalDateTime.now();
 	  this.getOwner().getServer().getOnlinePlayers().forEach((uuid, player) -> {
-		  File f = new File(this.getOwner().getDataFolder() + File.separator + player.getLevel().getName()+".json");
+		  File f = new File(this.getOwner().getDataFolder() + File.separator + "world_data" + File.separator + player.getLevel().getName()+".json");
 		  Config config = new Config(f,Config.JSON);
 		  if(config.exists("invited_"+player.getName())) {
 			  if(player.getGamemode() == 0){
@@ -30,7 +30,7 @@ public class task extends PluginTask<Main> {
 				}
 		  }
 		  if(player.hasEffect(14)) {
-			  player.removeEffect(14);//透明Effectは禁止
+			  player.removeEffect(14);
 		  }
 		   player.sendPopup("INFO\nDATE : " + d.getHour()+":"+d.getMinute()+":"+d.getSecond()+
 	       "\nYOUR POSITION : "+"X>"+player.getFloorX()+" Y>"+player.getFloorY()+" Z>"+player.getFloorZ()+
